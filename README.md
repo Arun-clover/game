@@ -1,2 +1,2 @@
-This is in development process
-it is almost ready 
+This game is Almost ready .
+Just some litte logic is pending to do.
