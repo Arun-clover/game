@@ -52,9 +52,9 @@ alert("You are Batting now!")
 while(true){
     let playerRun=prompt(`Your Current Score=${playerscore}\nEnter a value between 1 to 6`).toLowerCase();
     if(playerRun=="quit"|| playerRun=="exit"){
-        break;
         alert("DO YOU WANT TO QUIT THE GAME IF YES CLICK OK!!");
-        location.reload()
+        break;
+        reload()
     }
     playerRun=parseInt(playerRun);
     if(isNaN(playerRun)||playerRun<1||playerRun>6){
@@ -80,9 +80,9 @@ function playbowling(targetscore=0){
     while(true){
         let playerball=parseInt(prompt(`computer Score=${computerscore}\nEnter a number between 1 to 6`));
         if(playerball=="quit"|| playerball=="exit"){
-            break;
             alert("DO YOU WANT TO QUIT THE GAME IF YES CLICK OK!!");
-            location.reload()
+            break;
+            reload()
         }
         playerball=parseInt(playerball);
         if(isNaN(playerball)||playerball<1||playerball>6){
@@ -114,5 +114,8 @@ function playbowling(targetscore=0){
     }else{
         alert(`GAME TIED!! ${playerscore} equals ${computerscore}`);
     }
+ }
+ function reload(){
+    location.reload();
  }
 console.log("Game is running");
