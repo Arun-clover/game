@@ -17,13 +17,13 @@ let startgame=()=>{
             let computer_choose=toOptions[random];
 
             if((check%2==0 && u_input=="even")||(check%2!==0 && u_input=="odd")){
-                // if this condition is true  player choose the and play with computer
+                // if this condition is true  player choose and play with computer
                 let roll=alert(`You choose ${u_input} and you entered ${userinput} and computer entered ${c_random} and the total is ${check1} so you won`);
                 let player=prompt("batting or bowling").toLowerCase()?? alert("Thanks, Next Time")?? location.reload();
                 if(player=="batting"){
                     playbatting();
                 }else{
-                     playbowling();
+                    playbowling();
                 }
             }
                 
@@ -47,21 +47,21 @@ let startgame=()=>{
 }
 function playbatting(){
 let playerscore=0; 
-alert("You are Batting now!")   
+alert("You are Batting now!");   
 
 while(true){
-    let playerRun=prompt(`Your Current Score=${playerscore}\nEnter a value between 1 to 6`).toLowerCase();
+    let playerRun=prompt(`Your Score = ${playerscore} \n Enter a value between 1 to 6`);
     if(playerRun=="quit"|| playerRun=="exit"){
         alert("DO YOU WANT TO QUIT THE GAME IF YES CLICK OK!!");
-        break;
-        reload()
+        location.reload()
+        return;
     }
     playerRun=parseInt(playerRun);
     if(isNaN(playerRun)||playerRun<1||playerRun>6){
         alert("Enter a valid number");
         continue;
     }
-    let computeBall=parseInt(Math.floor(Math.random()*6));
+    let computeBall=parseInt(Math.floor(Math.random()*6)+1);
     if(playerRun==computeBall){
         alert("YOU LOST THE GAME!!");
         alert(`You played ${playerRun} Computer played ${computeBall}`);
@@ -74,22 +74,23 @@ while(true){
 }
 
 
-function playbowling(targetscore=0){
+function playbowling(targetscore=0)
+{
     let computerscore=0;
     alert("YOU ARE BOWLING!!")
     while(true){
         let playerball=parseInt(prompt(`computer Score=${computerscore}\nEnter a number between 1 to 6`));
         if(playerball=="quit"|| playerball=="exit"){
             alert("DO YOU WANT TO QUIT THE GAME IF YES CLICK OK!!");
-            break;
-            reload()
+            location.reload();
+            return;
         }
         playerball=parseInt(playerball);
         if(isNaN(playerball)||playerball<1||playerball>6){
             alert("Enter a valid number");
             continue;
         }
-        let computerRun=parseInt(Math.floor(Math.random()*6))
+        let computerRun=parseInt(Math.floor(Math.random()*6)+1)
         if(playerball==computerRun){
             alert(`You Won the match you bowled${playerball} computer played ${computerRun}`);
             break;
@@ -105,6 +106,7 @@ function playbowling(targetscore=0){
         }
     }
 
+}
     // checking the winner if both have played
     if(targetscore>computerscore){
         alert(`player is WON!!!`);
@@ -112,10 +114,7 @@ function playbowling(targetscore=0){
     else if(targetscore<computerscore){
         alert(`Computer won the match`);
     }else{
-        alert(`GAME TIED!! ${playerscore} equals ${computerscore}`);
+        alert(`GAME TIED!! ${targetscore} equals ${computerscore}`);
     }
- }
- function reload(){
-    location.reload();
- }
+
 console.log("Game is running");
